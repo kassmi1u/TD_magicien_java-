@@ -1,7 +1,5 @@
 public class Monstre extends Personnage {
   
-
-
   
   public Monstre ( int point, String nom ){
     super(point,nom);
@@ -15,8 +13,6 @@ public class Monstre extends Personnage {
       int coup1 = this.getVie()/2;
       int coup2 = p.subitFrappe(coup1);
       this.addVie(coup2);   
-
-
     }
   }
 
@@ -25,8 +21,8 @@ public class Monstre extends Personnage {
     this.point -= coup;
     if ( this.point > 0){ 
      return -this.point/2; 
-    } else {
-     return 0; 
+    } 
+    return 0;
   }
 
 
@@ -35,8 +31,7 @@ public class Monstre extends Personnage {
      this.point -=  coup; 
      if ( this.point > 0){
        return -this.point/2;
-     } else {
-       return 0;
-     }
+     }  
+     return 0;
   }
-  
+}

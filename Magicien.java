@@ -1,3 +1,4 @@
+
 public class Magicien extends Sorcier implements SuperPouvoir {
 
 
@@ -7,23 +8,21 @@ public class Magicien extends Sorcier implements SuperPouvoir {
   
 
   public double getPouvoir(){
-    return Math.random()*extra;
+    return this.pouvoir*extra;
   }
 
-  public double Sort() {
-    return this.getPourvoir();
+  public double sort() {
+    return this.getPouvoir()*Math.random();
  
   }
 
-
-
-
-  public int subitFrappe(int coup){
-    super();
-  }
-
+  
   public int subitCharme(int coup){
-    return -(int)(coup*this.sort()
+    if (!this.mort()){
+      return -(int)(this.sort()*coup);
+    }
+    return 0;
+
   }
 
 }

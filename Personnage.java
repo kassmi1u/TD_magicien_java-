@@ -14,7 +14,7 @@ public  abstract class Personnage implements Victime{
     return this.nom;
   }
 
-  public boolean  mort(){
+  public boolean mort(){
     if ( this.point > 0 ){
       return false ;
     } else {

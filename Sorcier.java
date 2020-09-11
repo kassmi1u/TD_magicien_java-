@@ -1,33 +1,30 @@
-public class Sorcier extends Personnage {
+public abstract class Sorcier extends Personnage {
 
-  protected float pouvoir; 
-  pouvoir = Math.random();
+  protected double pouvoir;
   
-
   public Sorcier(int point, String nom){
     super(point,nom);
+    this.pouvoir = Math.random();
   }
   
-
-  //Attaque 
-  public void attaque ( Personnage p){
-
-    if ( p.mort() == false  ) {
-      int coup1 = this.getVie()*pouvoir;
-      int coup2 = p.subitFrappe(coup1);
-      this.addVie(coup2);
+  public int subitFrappe(int coup){
+    this.addVie(coup);
+    if (this.mort()){                              
+      return (int)(-(this.point)*(this.pouvoir));
     }
- }
+    return 0;
+  }
 
-  //get Pouvoir 
-  public int getPouvoir(){
-    return pouvoir;
 
-  //Frappe 
-  public int subitFrappe( int coup){
-    this.point -= coup;
-    if ( this.point > 0 ){
-     return - this.point/2; 
-    return 0; 
-  } 
+  public void attaque(Victime v){
+    if (this.mort()){
+      int coup= (int)(-(this.point)*(this.pouvoir));
+      this.point += v.subitCharme(coup);
+    }
+  }
+
+  public double getPouvoir(){
+    return this.pouvoir;
+  }
+
 }
